@@ -20,7 +20,7 @@ export default function SubscriptionPage() {
 
   const fetchPlans = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/subscriptions/plans')
+      const res = await axios.get('https://heroic-sparkle.railway.app/api/subscriptions/plans')
       setAllPlans(res.data.plans)
     } catch (err) {
       setError('Failed to load plans')

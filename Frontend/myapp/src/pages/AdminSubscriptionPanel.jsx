@@ -28,7 +28,7 @@ export default function AdminSubscriptionPanel() {
       const token = localStorage.getItem('token')
 
       // Fetch current subscription status
-      const statusRes = await fetch('http://localhost:5000/api/subscriptions/status', {
+      const statusRes = await fetch('https://heroic-sparkle.railway.app/api/subscriptions/status', {
         headers: { 'Authorization': `Bearer ${token}` }
       })
       const statusData = await statusRes.json()
@@ -36,14 +36,14 @@ export default function AdminSubscriptionPanel() {
       setPlanStatus(statusData)
 
       // Fetch available features for current plan
-      const featuresRes = await fetch('http://localhost:5000/api/subscriptions/features', {
+      const featuresRes = await fetch('https://heroic-sparkle.railway.app/api/subscriptions/features', {
         headers: { 'Authorization': `Bearer ${token}` }
       })
       const featuresData = await featuresRes.json()
       setAvailableFeatures(featuresData.features || {})
 
       // Fetch all available plans
-      const plansRes = await fetch('http://localhost:5000/api/subscriptions/plans')
+      const plansRes = await fetch('https://heroic-sparkle.railway.app/api/subscriptions/plans')
       const plansData = await plansRes.json()
       setAllPlans(plansData.plans || [])
 
@@ -58,7 +58,7 @@ export default function AdminSubscriptionPanel() {
   const handleUpgrade = async (planName) => {
     try {
       const token = localStorage.getItem('token')
-      const response = await fetch('http://localhost:5000/api/subscriptions/upgrade', {
+      const response = await fetch('https://heroic-sparkle.railway.app/api/subscriptions/upgrade', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
