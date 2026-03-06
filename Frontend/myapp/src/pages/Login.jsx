@@ -35,7 +35,7 @@ export default function Login() {
       <div className="login-content">
         <div className="login-box">
           <div className="login-header">
-            <h1>🏥 AI Clinic Management</h1>
+            <h1>🏥 AI Clinic Management Ali</h1>
             <p>Login to your account</p>
           </div>
 
