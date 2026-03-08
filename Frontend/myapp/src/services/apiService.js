@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_BASE_URL = 'https://heroic-sparkle.railway.app/api'
+const API_BASE_URL = 'https://final-hakathon-backend-production.up.railway.app/api'
 
 const api = axios.create({
   baseURL: API_BASE_URL,

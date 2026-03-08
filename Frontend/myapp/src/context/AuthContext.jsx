@@ -73,7 +73,7 @@ export function AuthProvider({ children }) {
   const signup = async (data) => {
     try {
       const response = await axios.post(
-        "https://heroic-sparkle.railway.app/api/auth/signup",
+        "https://final-hakathon-backend-production.up.railway.app/api/auth/signup",
         data,
       );
 
@@ -88,7 +88,7 @@ export function AuthProvider({ children }) {
   const verifyOTP = async ({ email, otp }) => {
     try {
       const response = await axios.post(
-        "https://heroic-sparkle.railway.app/api/auth/verify-otp",
+        "https://final-hakathon-backend-production.up.railway.app/api/auth/verify-otp",
         { email, otp },
       );
 

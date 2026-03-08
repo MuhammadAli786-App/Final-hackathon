@@ -67,7 +67,7 @@ export default function AppointmentsList() {
   const handleCancel = async (appointmentId) => {
     try {
       // Use the /status endpoint for status updates
-      const res = await fetch(`https://heroic-sparkle.railway.app/api/appointments/${appointmentId}/status`, {
+      const res = await fetch(`https://final-hakathon-backend-production.up.railway.app/api/appointments/${appointmentId}/status`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

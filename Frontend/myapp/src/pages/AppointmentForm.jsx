@@ -41,7 +41,7 @@ export default function AppointmentForm() {
       setPatients(patientsRes.data)
       
       // Fetch doctors from user API
-      const docsRes = await fetch('https://heroic-sparkle.railway.app/api/users?role=doctor', {
+      const docsRes = await fetch('https://final-hakathon-backend-production.up.railway.app/api/users?role=doctor', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       })
       const docs = await docsRes.json()
@@ -99,7 +99,7 @@ export default function AppointmentForm() {
       if (isEditing) {
         // For edit, we need to use the backend update endpoint
         // The appointmentService.update() might use the wrong endpoint
-        const res = await fetch(`https://heroic-sparkle.railway.app/api/appointments/${id}`, {
+        const res = await fetch(`https://final-hakathon-backend-production.up.railway.app/api/appointments/${id}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',

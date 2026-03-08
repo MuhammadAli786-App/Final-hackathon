@@ -34,7 +34,7 @@ export default function AdminUserManagement() {
       const [doctorsRes, receptionistsRes, patientsRes] = await Promise.all([
         userService.getByRole('doctor'),
         userService.getByRole('receptionist'),
-        fetch('https://heroic-sparkle.railway.app/api/patients', {
+        fetch('https://final-hakathon-backend-production.up.railway.app/api/patients', {
           headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
         }).then(res => res.json())
       ])
@@ -60,7 +60,7 @@ export default function AdminUserManagement() {
           addToast('All fields are required for patient', 'error')
           return
         }
-        const res = await fetch('https://heroic-sparkle.railway.app/api/patients', {
+        const res = await fetch('https://final-hakathon-backend-production.up.railway.app/api/patients', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -78,7 +78,7 @@ export default function AdminUserManagement() {
           return
         }
 
-        const response = await fetch('https://heroic-sparkle.railway.app/api/users', {
+        const response = await fetch('https://final-hakathon-backend-production.up.railway.app/api/users', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -111,12 +111,12 @@ export default function AdminUserManagement() {
     try {
       let response
       if (role === 'patient') {
-        response = await fetch(`https://heroic-sparkle.railway.app/api/patients/${userId}`, {
+        response = await fetch(`https://final-hakathon-backend-production.up.railway.app/api/patients/${userId}`, {
           method: 'DELETE',
           headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
         })
       } else {
-        response = await fetch(`https://heroic-sparkle.railway.app/api/users/${userId}`, {
+        response = await fetch(`https://final-hakathon-backend-production.up.railway.app/api/users/${userId}`, {
           method: 'DELETE',
           headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
         })
@@ -142,7 +142,7 @@ export default function AdminUserManagement() {
     try {
       let response, updated
       if (role === 'patient') {
-        response = await fetch(`https://heroic-sparkle.railway.app/api/patients/${userId}`, {
+        response = await fetch(`https://final-hakathon-backend-production.up.railway.app/api/patients/${userId}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
@@ -153,7 +153,7 @@ export default function AdminUserManagement() {
         updated = await response.json()
         setPatients(patients.map(u => u._id === userId ? updated : u))
       } else {
-        response = await fetch(`https://heroic-sparkle.railway.app/api/users/${userId}/status`, {
+        response = await fetch(`https://final-hakathon-backend-production.up.railway.app/api/users/${userId}/status`, {
           method: 'PATCH',
           headers: {
             'Content-Type': 'application/json',
